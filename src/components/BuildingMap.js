@@ -4,11 +4,12 @@ import Marker from './Marker';
 import { data } from '../db'
 import useWindowDimensions from '../useWindowDimensions'
 import { Link } from 'react-router-dom';
+import headerComponent from './header'
 
 const coords = [60.1954, 24.9174];
 
 const search = (typed, change, options) => (
-  <div>
+  <div style={{"padding-right": "2px"}}>
     <div class="ui icon input">
       <input 
         type="text" 
@@ -32,7 +33,9 @@ const search = (typed, change, options) => (
 export default function BuildingMap({typed, change, options}) {
   const { height, width } = useWindowDimensions();
   return (
-    <div style={{ maxWidth: '100%', maxHeight: '100%', margin: '0 auto', display: 'flex'}}>
+  <div>
+    {headerComponent()}
+   <div style={{ maxWidth: '100%', maxHeight: '100%', margin: '0 auto', display: 'flex', 'padding-top': '2px'}}>
       {search(typed, change, options)}
       <Map
         center={coords}
@@ -58,6 +61,7 @@ export default function BuildingMap({typed, change, options}) {
           else return null
           })}
       </Map>
+    </div>
     </div>
   );
 }
