@@ -13,6 +13,7 @@ const search = (typed, change, options) => (
       onSearchChange={change}
       placeholder={typed}
       classNames="search"
+      noResultsMessage = {null}
     />
   <div>
     <ul>

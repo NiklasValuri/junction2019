@@ -18,11 +18,12 @@ function App() {
     setTyped(event.target.value)
     console.log(event.target.value)
     console.log(typed)
-    handleOptionChange()
+    handleOptionChange(event)
   }
 
   const handleOptionChange = (event) => {
-    const newData = data.map(x => x.address).filter(x => x.toLowerCase().startsWith(typed.toLowerCase())).map(y => <p key="y">{y}</p>)
+    const target = event.target.value
+    const newData = target == 0 ? [] : data.map(x => x.address).filter(x => x.toLowerCase().startsWith(target.toLowerCase())).map(y => <p key="y">{y}</p>)
     setOptions(newData)
   }
 
