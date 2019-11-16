@@ -27,7 +27,7 @@ function App() {
 
   return (
     <Switch>
-      <Route path='/info/:address' component={InfoPage} />
+      <Route path='/info/:id' component={InfoPage} />
 
       <Route path='/test' >
         <InfoPage />

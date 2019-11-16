@@ -45,12 +45,13 @@ export default function BuildingMap({typed, change, options}) {
         defaultWidth={width}
         height={height}
       >
-        {data.map(({description,startDate,endDate,address,name, lat, lng}) => {
+        {data.map(({id,startDate,endDate,address,name, lat, lng}) => {
           if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 60.5))
             return (
               <Marker 
                 address={address} 
                 name={name} 
+                id={id} 
                 anchor={[lat, lng]} 
                 payload={1} 
                 onClick={({ event, anchor, payload }) => {}} 
