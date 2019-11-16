@@ -30,19 +30,23 @@ function App() {
 
   return (
     <Switch>
-      <Route path="/info/:address" component={InfoPage} />
+      <Route path='/info/:id' component={InfoPage} />
 
-
-      <Route path="/test">
+      <Route path='/test' >
         <InfoPage />
       </Route>
 
-      <Route path="/">
+      <Route path='/' >
         <div>
-          <BuildingMap typed = {typed} change = {handleFilterChange} options = {options}/>
+          <BuildingMap 
+            typed={typed} 
+            change={handleFilterChange} 
+            options={options}
+          />
         </div>
       </Route>
-      <Redirect to="/" />
+
+      <Redirect to='/' />
     </Switch>
   );
 }

@@ -3,7 +3,7 @@ import Map from 'pigeon-maps';
 import Marker from './Marker';
 import { data } from '../db'
 import useWindowDimensions from '../useWindowDimensions'
-import { Search } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const coords = [60.1954, 24.9174];
 
@@ -17,7 +17,11 @@ const search = (typed, change, options) => (
     />
   <div>
     <ul>
-      {options}
+      {options.map((address) => {
+        return (
+          <Link to={`/info/${address.props.children}`}>{address}</Link>
+        )
+      })}
     </ul>
   </div>
   </div>
@@ -39,12 +43,13 @@ export default function BuildingMap({typed, change, options}) {
         defaultWidth={width}
         height={height}
       >
-        {data.map(({description,startDate,endDate,address,name, lat, lng}) => {
+        {data.map(({id,startDate,endDate,address,name, lat, lng}) => {
           if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 60.5))
             return (
               <Marker 
                 address={address} 
                 name={name} 
+                id={id} 
                 anchor={[lat, lng]} 
                 payload={1} 
                 onClick={({ event, anchor, payload }) => {}} 

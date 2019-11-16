@@ -2,9 +2,10 @@ import React from 'react';
 import { Container, Header, Progress, Button } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { useHistory, useParams } from 'react-router-dom';
+import { data } from '../db'
 
 const InfoPage = () => {
-  let id = useParams();
+  const { id } = useParams();
 
   let history = useHistory();
 
@@ -12,11 +13,14 @@ const InfoPage = () => {
     history.push('/');
   }
 
+  const job = data.find(job => job.id === id)
+
   return (
     <MainPage>
       <Page>
         <Flex>
-          <Title>{id.address}</Title>
+          <Title>{job.name}</Title>
+          <Title>{job.address}</Title>
 
           <ButtonCustom onClick={handleClick}>Back to search</ButtonCustom>
         </Flex>
@@ -27,9 +31,7 @@ const InfoPage = () => {
           <Header as="h1">Purpose of the project</Header>
 
           <Text>
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehe
+            {job.description}
           </Text>
         </TextArea>
 
