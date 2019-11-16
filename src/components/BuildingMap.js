@@ -1,8 +1,6 @@
 import React from 'react';
 import Map from 'pigeon-maps';
-//import Marker from 'pigeon-marker'
 import Marker from './Marker';
-import Overlay from 'pigeon-overlay';
 import { data } from '../db'
 
 const coords = [60.1954, 24.9174];
@@ -33,10 +31,6 @@ function BuildingMap() {
               />)
           else return null
           })}
-
-        <Overlay anchor={coords} offset={[120, 79]}>
-          <img src="pigeon.jpg" width={240} height={158} alt="" />
-        </Overlay>
       </Map>
     </div>
   );
