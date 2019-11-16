@@ -12,7 +12,7 @@ function BuildingMap() {
     <div style={{ maxWidth: 800, margin: '0 auto' }}>
       <Map
         center={coords}
-        zoom={15}
+        zoom={13}
         provider={(x, y, z, dpr) => {
           return `https://maps.wikimedia.org/osm-intl/${z}/${x}/${y}${dpr >= 2 ? '@2x' : ''}.png`;
         }}
@@ -22,7 +22,7 @@ function BuildingMap() {
         height={500}
       >
         {data.map(({description,startDate,endDate,address,name, lat, lng}) => (
-          <Marker anchor={[lat, lng]} payload={1} onClick={({ event, anchor, payload }) => {}} />
+          <Marker address={address} anchor={[lat, lng]} payload={1} onClick={({ event, anchor, payload }) => {}} />
         ))}
 
         <Overlay anchor={coords} offset={[120, 79]}>
