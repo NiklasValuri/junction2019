@@ -27,13 +27,13 @@ function App() {
 
   return (
     <Switch>
-      <Route path={`${process.env.PUBLIC_URL}/info/:address`} component={InfoPage} />
+      <Route path='/info/:address' component={InfoPage} />
 
-      <Route path={`${process.env.PUBLIC_URL}/test`} >
+      <Route path='/test' >
         <InfoPage />
       </Route>
 
-      <Route path={`${process.env.PUBLIC_URL}/`} >
+      <Route path='/' >
         <div>
           <BuildingMap 
             typed={typed} 
@@ -43,7 +43,7 @@ function App() {
         </div>
       </Route>
 
-      <Redirect to={`${process.env.PUBLIC_URL}/`} />
+      <Redirect to='/' />
     </Switch>
   );
 }
