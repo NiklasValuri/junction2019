@@ -8,7 +8,7 @@ const coords = [60.1654, 24.9374]
 
 function BuildingMap() {
   return (
-    <div style={{maxWidth: 600, margin: '0 auto'}}>
+    <div style={{maxWidth: 800, margin: '0 auto'}}>
       <Map 
         center={coords} 
         zoom={15} 
@@ -17,7 +17,7 @@ function BuildingMap() {
         }}
         animate={true}
         mouseEvents={true}
-        defaultWidth={800} 
+        defaultWidth={1200} 
         height={500}
       >
         <Marker 
