@@ -8,16 +8,17 @@ import { data } from '../db.js'
 
 
 const coords = [60.1654, 24.9374]
-const sites = data.map(x=> x[3]).slice(1).map(y => <p>{y}</p>)
-const search = (
+
+const search = (typed, change, options) => (
   <div>
     <Search
-      placeholder={"Search"}
+      onSearchChange={change}
+      placeholder={typed}
       classNames="search"
     />
   <div>
     <ul>
-      {sites}
+      {options}
     </ul>
   </div>
   </div>
@@ -54,10 +55,10 @@ const styles = {
   }
 }
 
-function BuildingMap() {
+function BuildingMap({typed, change, options}) {
   return (
     <div style={styles.map}>
-      {search}
+      {search(typed, change, options)}
       {map}
     </div>
   )
