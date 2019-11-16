@@ -4,7 +4,6 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import './App.css';
 import BuildingMap from './components/BuildingMap'
 import InfoPage from './components/InfoPage'
 import { Container } from 'semantic-ui-react';
