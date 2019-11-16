@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react'
+import { Button, Popup, Icon } from 'semantic-ui-react'
+import {
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 import './App.css';
+import SmallPopup from './components/SmallPopup'
 
 function App() {
   return (
     <div className="App">
-      Epic
-      <Button>Click Here</Button>
+      <Switch>
+        <Route exact path="/"  component={SmallPopup} />
+        <Route path="/info/:address" component={SmallPopup} />
+        <Redirect to="/" />
+      </Switch>
     </div>
   );
 }
