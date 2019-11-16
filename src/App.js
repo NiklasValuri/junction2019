@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 import {
   Route,
   Switch,
@@ -6,13 +7,35 @@ import {
 } from 'react-router-dom';
 import BuildingMap from './components/BuildingMap'
 import InfoPage from './components/InfoPage'
-import { Container } from 'semantic-ui-react';
+import { Container, Search } from 'semantic-ui-react';
 
 import Map from 'pigeon-maps'
 import Marker from 'pigeon-marker'
 import Overlay from 'pigeon-overlay'
 
 const coords = [60.1654, 24.9374]
+const sites = ["Mannerheimintie 12\n", "Etelä-Esplanadi 8\n", "Pohjoistie 7\n"]
+
+
+const search = (
+  <Search
+  placeholder="Search..."
+  classNames="search"
+  />
+
+)
+
+sites.map(x => <li>x</li>)
+
+const options = (
+  <Container>
+    <div>
+      <ul>
+        {sites}
+     </ul>
+    </div>
+  </Container>
+)
 
 const map = (
   <Map 
@@ -37,13 +60,18 @@ const map = (
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route exact path="/"  component={BuildingMap} />
-        <Route path="/info/:address" component={InfoPage} />
-        <Redirect to="/" />
-      </Switch>
-      Epic
-      {map}
+      <div className="sidebar">
+        {search}
+        {options}
+      </div>
+      <div className="map">
+        <Switch>
+          <Route exact path="/"  component={BuildingMap} />
+          <Route path="/info/:address" component={InfoPage} />
+          <Redirect to="/" />
+        </Switch>
+        {map}
+      </div>
     </div>
   )
 }
