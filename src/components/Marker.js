@@ -11,7 +11,9 @@ export default class Marker extends Component {
   static propTypes = {
     // input, passed to events
     anchor: PropTypes.array.isRequired,
+    address: PropTypes.string,
     payload: PropTypes.any,
+    name: PropTypes.string,
 
     // optional modifiers
     hover: PropTypes.bool,
@@ -43,7 +45,9 @@ export default class Marker extends Component {
   eventParameters = (event) => ({
     event,
     anchor: this.props.anchor,
-    payload: this.props.payload
+    address: this.props.address,
+    payload: this.props.payload,
+    name: this.props.name,
   })
 
 
@@ -75,7 +79,7 @@ export default class Marker extends Component {
   // render
 
   render () {
-    const { left, top, onClick } = this.props
+    const { left, top, onClick, address, name } = this.props
 
     const style = {
       position: 'absolute',
@@ -84,7 +88,7 @@ export default class Marker extends Component {
     }
 
     return (
-      <div style={style}>{SmallPopup()}</div>
+      <div style={style}>{SmallPopup({address, name})}</div>
     )
   }
 }

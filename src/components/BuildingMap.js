@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react'
 import Map from 'pigeon-maps'
 //import Marker from 'pigeon-marker'
@@ -7,7 +8,8 @@ import { Search } from 'semantic-ui-react'
 import { data } from '../db.js'
 
 
-const coords = [60.1654, 24.9374]
+
+const coords = [60.1954, 24.9174];
 
 const search = (typed, change, options) => (
   <div>
@@ -25,43 +27,44 @@ const search = (typed, change, options) => (
 )
 
 const map = (
-  <Map 
-    center={coords} 
-    zoom={15} 
-    provider={(x, y, z, dpr) => {
-      return `https://maps.wikimedia.org/osm-intl/${z}/${x}/${y}${dpr >= 2 ? '@2x' : ''}.png`
-    }}
-    animate={true}
-    mouseEvents={true}
-    defaultWidth={1200} 
-    height={500}
-  >
-    <Marker 
-      anchor={coords} 
-      payload={1} 
-      onClick={({ event, anchor, payload }) => {}} 
-    />
-
-    <Overlay anchor={coords} offset={[120, 79]}>
-      <img src='pigeon.jpg' width={240} height={158} alt='' />
-    </Overlay>
+    <Map
+      center={coords}
+      zoom={11}
+      provider={(x, y, z, dpr) => {
+        return `https://maps.wikimedia.org/osm-intl/${z}/${x}/${y}${dpr >= 2 ? '@2x' : ''}.png`;
+      }}
+      animate={true}
+      mouseEvents={true}
+      defaultWidth={1200}
+      height={500}
+    >
+      {data.map(({description,startDate,endDate,address,name, lat, lng}) => {
+        if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 60.5))
+          return (
+            <Marker 
+              address={address} 
+              name={name} 
+              anchor={[lat, lng]} 
+              payload={1} 
+              onClick={({ event, anchor, payload }) => {}} 
+            />)
+        else return null
+        })}
   </Map>
 )
 
 const styles = {
-  map: {
-    display: 'flex',
-    margin: 10
-  }
+    margin: 10,
+    display: 'flex'
 }
 
 function BuildingMap({typed, change, options}) {
   return (
-    <div style={styles.map}>
-      {search(typed, change, options)}
+    <div style = {styles}>
+      {search(change, typed, options)}
       {map}
     </div>
-  )
+  );
 }
 
-export default BuildingMap
+export default BuildingMap;
