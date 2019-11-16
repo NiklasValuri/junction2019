@@ -1,24 +1,30 @@
 import React from 'react'
-import { Button, Popup, Icon } from 'semantic-ui-react'
+import { Popup, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const popupContent = () => {
   return (
     <div>
       <div>Osoite 12 B</div>
       <div>Status: in progress</div>
-      <div>Estimated time to done: 3m</div>
+      <div>ETA: 3m</div>
+      <Link to='/info/osoite12b'>More Info</Link>
     </div>
   )
 }
 
-export default function SmallPopup() {
+function SmallPopup() {
   return (
     <div>
       <Popup
         trigger={<Icon circular name='map marker alternate' />}
-        content='Hello. This is a huge popup'
+        content={popupContent}
+        on='click'
+        pinned
         size='huge'
       />
     </div>
   )
 }
+
+export default SmallPopup

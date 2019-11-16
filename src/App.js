@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
-import { Button, Popup, Icon } from 'semantic-ui-react'
+import React from 'react';
 import {
   Route,
-  Link,
   Switch,
   Redirect
 } from 'react-router-dom';
 import './App.css';
-import SmallPopup from './components/SmallPopup'
+import BuildingMap from './components/BuildingMap'
+import InfoPage from './components/InfoPage'
 
 function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/"  component={SmallPopup} />
-        <Route path="/info/:address" component={SmallPopup} />
+        <Route exact path="/"  component={BuildingMap} />
+        <Route path="/info/:address" component={InfoPage} />
         <Redirect to="/" />
       </Switch>
     </div>
