@@ -1,8 +1,6 @@
 import React from 'react';
 import Map from 'pigeon-maps';
-//import Marker from 'pigeon-marker'
 import Marker from './Marker';
-import Overlay from 'pigeon-overlay';
 import { data } from '../db'
 
 const coords = [60.1954, 24.9174];
@@ -22,14 +20,17 @@ function BuildingMap() {
         height={500}
       >
         {data.map(({description,startDate,endDate,address,name, lat, lng}) => {
-          if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 62))
-          return (
-          <Marker address={address} anchor={[lat, lng]} payload={1} onClick={({ event, anchor, payload }) => {}} />
-        )})}
-
-        <Overlay anchor={coords} offset={[120, 79]}>
-          <img src="pigeon.jpg" width={240} height={158} alt="" />
-        </Overlay>
+          if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 60.5))
+            return (
+              <Marker 
+                address={address} 
+                name={name} 
+                anchor={[lat, lng]} 
+                payload={1} 
+                onClick={({ event, anchor, payload }) => {}} 
+              />)
+          else return null
+          })}
       </Map>
     </div>
   );
