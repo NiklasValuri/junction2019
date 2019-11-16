@@ -23,9 +23,15 @@ function BuildingMap() {
       >
         {data.map(({description,startDate,endDate,address,name, lat, lng}) => {
           if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 62))
-          return (
-          <Marker address={address} anchor={[lat, lng]} payload={1} onClick={({ event, anchor, payload }) => {}} />
-        )})}
+            return (
+              <Marker 
+                address={address} 
+                anchor={[lat, lng]} 
+                payload={1} 
+                onClick={({ event, anchor, payload }) => {}} 
+              />)
+          else return null
+          })}
 
         <Overlay anchor={coords} offset={[120, 79]}>
           <img src="pigeon.jpg" width={240} height={158} alt="" />
