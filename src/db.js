@@ -11,5 +11,3 @@ export const data = db.split('\n').map(row => {
     lng: Number(attributes[6]),
   }
 })
-
-console.log(data[0])
