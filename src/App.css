@@ -1,0 +1,10 @@
+
+.map {
+    display: inline-flex;
+}
+
+.sidebar {
+    background-color: rgb(92, 195, 255);
+    padding: 10px;
+}
+

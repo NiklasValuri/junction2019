@@ -3,13 +3,30 @@ import Map from 'pigeon-maps';
 import Marker from './Marker';
 import { data } from '../db'
 import useWindowDimensions from '../useWindowDimensions'
+import { Search } from 'semantic-ui-react';
 
 const coords = [60.1954, 24.9174];
 
-function BuildingMap() {
+const search = (typed, change, options) => (
+  <div>
+    <Search
+      onSearchChange={change}
+      placeholder={typed}
+      classNames="search"
+    />
+  <div>
+    <ul>
+      {options}
+    </ul>
+  </div>
+  </div>
+)
+
+export default function BuildingMap({typed, change, options}) {
   const { height, width } = useWindowDimensions();
   return (
-    <div style={{ maxWidth: '100%', maxHeight: '100%', margin: '0 auto' }}>
+    <div style={{ maxWidth: '100%', maxHeight: '100%', margin: '0 auto', display: 'flex'}}>
+      {search(typed, change, options)}
       <Map
         center={coords}
         zoom={11}
@@ -38,4 +55,3 @@ function BuildingMap() {
   );
 }
 
-export default BuildingMap;
