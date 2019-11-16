@@ -3,6 +3,7 @@ import Map from 'pigeon-maps';
 //import Marker from 'pigeon-marker'
 import Marker from './Marker';
 import Overlay from 'pigeon-overlay';
+import { data } from '../db'
 
 const coords = [60.1654, 24.9374];
 
@@ -20,7 +21,9 @@ function BuildingMap() {
         defaultWidth={1200}
         height={500}
       >
-        <Marker anchor={coords} payload={1} onClick={({ event, anchor, payload }) => {}} />
+        {data.map(({description,startDate,endDate,address,name, lat, lng}) => (
+          <Marker anchor={[lat, lng]} payload={1} onClick={({ event, anchor, payload }) => {}} />
+        ))}
 
         <Overlay anchor={coords} offset={[120, 79]}>
           <img src="pigeon.jpg" width={240} height={158} alt="" />
