@@ -20,7 +20,7 @@ function App() {
   }
 
   const handleOptionChange = (event) => {
-    const newData = typed === '' ? [] : data.map(x=> x[3]).slice(1).filter(x => x.toLowerCase().startsWith(typed)).map(y => <p key="y">{y}</p>)
+    const newData = data.map(x => x.address).filter(x => x.toLowerCase().startsWith(typed)).map(y => <p key="y">{y}</p>)
     setOptions(newData)
   }
 
