@@ -22,7 +22,7 @@ function BuildingMap() {
         height={500}
       >
         {data.map(({description,startDate,endDate,address,name, lat, lng}) => {
-          if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 62))
+          if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 60.5))
             return (
               <Marker 
                 address={address} 
