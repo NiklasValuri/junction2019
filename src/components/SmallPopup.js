@@ -9,7 +9,7 @@ const popupContent = (props) => {
       <div>Osoite: {props.address}</div>
       <div>Status: in progress</div>
       <div>ETA: 3m</div>
-      <Link to={`/info/${props.address}`}>More Info</Link>
+      <Link to={`/info/${props.id}`}>More Info</Link>
     </div>
   );
 };

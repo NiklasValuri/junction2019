@@ -16,19 +16,19 @@ function App() {
 
   const handleFilterChange = (event) => {
     setTyped(event.target.value)
-    handleOptionChange()
+    handleOptionChange(event)
   }
 
   const handleOptionChange = (event) => {
-    const newData = data.filter(x => !(x.lng === 0 || isNaN(x.lat) || x.lat <= 60 || x.lat > 60.5)).map(x => x.address).filter(x => x.toLowerCase().startsWith(typed)).map(y => <p key="y">{y}</p>)
+    const target = event.target.value
+    const newData = target == 0 ? [] : data.map(x => x.address).filter(x => x.toLowerCase().startsWith(target.toLowerCase())).map(y => <p key="y">{y}</p>)
     setOptions(newData)
   }
 
 
   return (
     <Switch>
-
-    <Route path='/info/:address' component={InfoPage} />
+      <Route path='/info/:id' component={InfoPage} />
 
       <Route path='/test' >
         <InfoPage />
