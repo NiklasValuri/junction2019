@@ -55,7 +55,7 @@ export default function BuildingMap({ typed, change, options }) {
           height={height}
         >
           {data.map(({ id, startDate, endDate, address, name, lat, lng }) => {
-            if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 60.5))
+            if (!(lng === 0 || isNaN(lat) || lat <= 60 || lat > 60.4))
               return (
                 <Marker
                   address={address}
