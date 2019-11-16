@@ -18,9 +18,9 @@ const search = (typed, change, options) => (
     />
   <div>
     <ul>
-      {options.map((address) => {
+      {options.map(job => {
         return (
-          <Link to={`/info/${address.props.children}`}>{address}</Link>
+          <Link to={`/info/${job.id}`}><p key={job.id}>{job.address}</p></Link>
         )
       })}
     </ul>

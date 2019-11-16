@@ -21,7 +21,7 @@ function App() {
 
   const handleOptionChange = (event) => {
     const target = event.target.value
-    const newData = target == 0 ? [] : data.map(x => x.address).filter(x => x.toLowerCase().startsWith(target.toLowerCase())).map(y => <p key="y">{y}</p>)
+    const newData = target === 0 ? [] : data.filter(x => x.address.toLowerCase().startsWith(target.toLowerCase()))
     setOptions(newData)
   }
 
