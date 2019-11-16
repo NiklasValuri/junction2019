@@ -4,6 +4,7 @@ import Marker from './Marker';
 import { data } from '../db'
 import useWindowDimensions from '../useWindowDimensions'
 import { Link } from 'react-router-dom';
+import { Search } from 'semantic-ui-react';
 
 const coords = [60.1954, 24.9174];
 
