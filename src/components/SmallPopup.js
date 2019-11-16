@@ -2,24 +2,24 @@ import React from 'react';
 import { Popup, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const popupContent = (address) => {
-
+const popupContent = (props) => {
   return (
     <div>
-      <div>Osoite: {address}</div>
+      <div>Nimi: {props.name}</div>
+      <div>Osoite: {props.address}</div>
       <div>Status: in progress</div>
       <div>ETA: 3m</div>
-      <Link to={`/info/${address}`}>More Info</Link>
+      <Link to={`/info/${props.address}`}>More Info</Link>
     </div>
   );
 };
 
-function SmallPopup(address) {
+function SmallPopup(props) {
   return (
     <div>
       <Popup
         trigger={<Icon circular name="blue large map marker alternate" />}
-        content={() => popupContent(address)}
+        content={() => popupContent(props)}
         on="click"
         pinned
         size="huge"

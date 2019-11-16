@@ -26,6 +26,7 @@ function BuildingMap() {
             return (
               <Marker 
                 address={address} 
+                name={name} 
                 anchor={[lat, lng]} 
                 payload={1} 
                 onClick={({ event, anchor, payload }) => {}} 
