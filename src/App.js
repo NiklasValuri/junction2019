@@ -20,9 +20,8 @@ const map = (
     zoom={15} 
     width={800} 
     height={500}
-    provider={(x, y, z) => {
-      const s = String.fromCharCode(97 + (x + y + z) % 3)
-      return `https://${s}.tile.openstreetmap.org/${z}/${x}/${y}.png`
+    provider={(x, y, z, dpr) => {
+      return `https://maps.wikimedia.org/osm-intl/${z}/${x}/${y}${dpr >= 2 ? '@2x' : ''}.png`
     }}
     animate={true}
     mouseEvents={true}
