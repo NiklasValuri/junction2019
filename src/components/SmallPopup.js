@@ -1,6 +1,6 @@
-import React from 'react'
-import { Popup, Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Popup, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const popupContent = () => {
   return (
@@ -8,23 +8,23 @@ const popupContent = () => {
       <div>Osoite 12 B</div>
       <div>Status: in progress</div>
       <div>ETA: 3m</div>
-      <Link to='/info/osoite12b'>More Info</Link>
+      <Link to="/info/osoite12b">More Info</Link>
     </div>
-  )
-}
+  );
+};
 
 function SmallPopup() {
   return (
     <div>
       <Popup
-        trigger={<Icon circular name='map marker alternate' />}
+        trigger={<Icon circular name="blue large map marker alternate" />}
         content={popupContent}
-        on='click'
+        on="click"
         pinned
-        size='huge'
+        size="huge"
       />
     </div>
-  )
+  );
 }
 
-export default SmallPopup
+export default SmallPopup;
