@@ -16,8 +16,6 @@ function App() {
 
   const handleFilterChange = (event) => {
     setTyped(event.target.value)
-    console.log(event.target.value)
-    console.log(typed)
     handleOptionChange(event)
   }
 
