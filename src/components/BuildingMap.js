@@ -3,20 +3,27 @@ import Map from 'pigeon-maps';
 import Marker from './Marker';
 import { data } from '../db'
 import useWindowDimensions from '../useWindowDimensions'
-import { Search } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const coords = [60.1954, 24.9174];
 
 const search = (typed, change, options) => (
   <div>
-    <Search
-      onSearchChange={change}
-      placeholder={typed}
-      classNames="search"
-    />
+    <div class="ui icon input">
+      <input 
+        type="text" 
+        placeholder="Search..."
+        onChange={change}
+      />
+      <i class="search icon"></i>
+    </div>
   <div>
     <ul>
-      {options}
+      {options.map((address) => {
+        return (
+          <Link to={`/info/${address.props.children}`}>{address}</Link>
+        )
+      })}
     </ul>
   </div>
   </div>

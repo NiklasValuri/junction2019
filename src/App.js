@@ -20,7 +20,7 @@ function App() {
   }
 
   const handleOptionChange = (event) => {
-    const newData = data.map(x => x.address).filter(x => x.toLowerCase().startsWith(typed)).map(y => <p key="y">{y}</p>)
+    const newData = data.filter(x => !(x.lng === 0 || isNaN(x.lat) || x.lat <= 60 || x.lat > 60.5)).map(x => x.address).filter(x => x.toLowerCase().startsWith(typed)).map(y => <p key="y">{y}</p>)
     setOptions(newData)
   }
 
@@ -36,7 +36,11 @@ function App() {
 
       <Route path="/">
         <div>
-          <BuildingMap typed = {typed} change = {handleFilterChange} options = {options}/>
+          <BuildingMap 
+            typed={typed} 
+            change={handleFilterChange} 
+            options={options}
+          />
         </div>
       </Route>
       <Redirect to="/" />
