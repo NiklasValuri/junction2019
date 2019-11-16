@@ -1,50 +1,49 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import BuildingMap from './components/BuildingMap';
 import InfoPage from './components/InfoPage';
-import { data } from './db.js'
-
+import { data } from './db.js';
 
 function App() {
-
-  const [typed, setTyped] = useState("Search...")
-  const [options, setOptions] = useState([])
+  const [typed, setTyped] = useState('Search...');
+  const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    setTyped(typed)
-  }, [])
+    setTyped(typed);
+  }, []);
 
-  const handleFilterChange = (event) => {
-    setTyped(event.target.value)
-    handleOptionChange(event)
-  }
+  const handleFilterChange = event => {
+    setTyped(event.target.value);
+    handleOptionChange(event);
+  };
 
-  const handleOptionChange = (event) => {
-    const target = event.target.value
-    const newData = target == 0 ? [] : data.map(x => x.address).filter(x => x.toLowerCase().startsWith(target.toLowerCase())).map(y => <p key="y">{y}</p>)
-    setOptions(newData)
-  }
-
+  const handleOptionChange = event => {
+    const target = event.target.value;
+    const newData =
+      target === 0
+        ? []
+        : data
+            .map(x => x.address)
+            .filter(x => x.toLowerCase().startsWith(target.toLowerCase()))
+            .map(y => <p key="y">{y}</p>);
+    setOptions(newData);
+  };
 
   return (
     <Switch>
-      <Route path='/info/:id' component={InfoPage} />
+      <Route path="/info/:id" component={InfoPage} />
 
-      <Route path='/test' >
+      <Route path="/test">
         <InfoPage />
       </Route>
 
-      <Route path='/' >
+      <Route path="/">
         <div>
-          <BuildingMap 
-            typed={typed} 
-            change={handleFilterChange} 
-            options={options}
-          />
+          <BuildingMap typed={typed} change={handleFilterChange} options={options} />
         </div>
       </Route>
 
-      <Redirect to='/' />
+      <Redirect to="/" />
     </Switch>
   );
 }
