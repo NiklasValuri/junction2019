@@ -20,7 +20,7 @@ n = 10
 # from minWeight = max(maxWeight - randomness, 0)
 # to maxWeight = 1 - abs(i - j) / n
 
-randomness = 0.3
+randomness = 0.0
 W = np.zeros((n, n))
 for i in range(n):
     for j in range(n):
