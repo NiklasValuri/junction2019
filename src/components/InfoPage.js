@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container, Header, Progress, Button } from 'semantic-ui-react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 const InfoPage = () => {
+  let id = useParams();
+
   let history = useHistory();
 
   function handleClick() {
@@ -14,12 +16,9 @@ const InfoPage = () => {
     <MainPage>
       <Page>
         <Flex>
-          <Title>Jumbo</Title>
-          <div>
-            <Button onClick={handleClick} primary>
-              Back
-            </Button>
-          </div>
+          <Title>{id.address}</Title>
+
+          <ButtonCustom onClick={handleClick}>Back to search</ButtonCustom>
         </Flex>
 
         <Gutter />
@@ -35,7 +34,7 @@ const InfoPage = () => {
         </TextArea>
 
         <TextArea>
-          <Header as="h1">Site</Header>
+          <Header as="h1">Information about the site</Header>
 
           <Text>
             adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -58,9 +57,11 @@ const InfoPage = () => {
   );
 };
 
+const ButtonCustom = styled(Button)({});
+
 const Flex = styled.div`
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: space-between;
 `;
 
