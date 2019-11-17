@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Input } from 'semantic-ui-react';
 import styled from 'styled-components';
 
-const coords = [60.1954, 24.9174];
+const coords = [60.1954, 25.0000];
 
 const search = (typed, change, options) => {
   return (
@@ -43,7 +43,7 @@ export default function BuildingMap({ typed, change, options }) {
 
         <Map
           center={coords}
-          zoom={11}
+          zoom={12}
           provider={(x, y, z, dpr) => {
             return `https://maps.wikimedia.org/osm-intl/${z}/${x}/${y}${dpr >= 2 ? '@2x' : ''}.png`;
           }}
