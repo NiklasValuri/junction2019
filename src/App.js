@@ -22,7 +22,7 @@ function App() {
     const newData =
       target === 0
         ? []
-        : data.filter(x => x.address.toLowerCase().startsWith(target.toLowerCase()));
+        : data.filter(x => !(x.lng === 0 || isNaN(x.lat) || x.lat <= 60 || x.lat > 60.4) && x.address.toLowerCase().startsWith(target.toLowerCase()));
     setOptions(newData);
   };
 
