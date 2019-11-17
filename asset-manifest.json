@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/junction2019/static/js/main.24fc045f.chunk.js",
-    "main.js.map": "/junction2019/static/js/main.24fc045f.chunk.js.map",
+    "main.js": "/junction2019/static/js/main.22686534.chunk.js",
+    "main.js.map": "/junction2019/static/js/main.22686534.chunk.js.map",
     "runtime-main.js": "/junction2019/static/js/runtime-main.a9205a0a.js",
     "runtime-main.js.map": "/junction2019/static/js/runtime-main.a9205a0a.js.map",
     "static/css/2.ac2b17e3.chunk.css": "/junction2019/static/css/2.ac2b17e3.chunk.css",
-    "static/js/2.d91c2f2f.chunk.js": "/junction2019/static/js/2.d91c2f2f.chunk.js",
-    "static/js/2.d91c2f2f.chunk.js.map": "/junction2019/static/js/2.d91c2f2f.chunk.js.map",
+    "static/js/2.275b631b.chunk.js": "/junction2019/static/js/2.275b631b.chunk.js",
+    "static/js/2.275b631b.chunk.js.map": "/junction2019/static/js/2.275b631b.chunk.js.map",
     "index.html": "/junction2019/index.html",
-    "precache-manifest.a60511106088151f3790c5713fd161d3.js": "/junction2019/precache-manifest.a60511106088151f3790c5713fd161d3.js",
+    "precache-manifest.1e72c02661975d65899688a42548c79e.js": "/junction2019/precache-manifest.1e72c02661975d65899688a42548c79e.js",
     "service-worker.js": "/junction2019/service-worker.js",
     "static/css/2.ac2b17e3.chunk.css.map": "/junction2019/static/css/2.ac2b17e3.chunk.css.map",
     "static/media/semantic.min.css": "/junction2019/static/media/outline-icons.ef60a4f6.woff"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.a9205a0a.js",
     "static/css/2.ac2b17e3.chunk.css",
-    "static/js/2.d91c2f2f.chunk.js",
-    "static/js/main.24fc045f.chunk.js"
+    "static/js/2.275b631b.chunk.js",
+    "static/js/main.22686534.chunk.js"
   ]
 }
