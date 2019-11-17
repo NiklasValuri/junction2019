@@ -11,4 +11,4 @@ export const data = db.split('\n').map(row => {
     lat: Number(attributes[6]),
     lng: Number(attributes[7]),
   }
-})
+}).slice(1).filter(x => !(x.address.match(/^\d/)))
