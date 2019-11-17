@@ -6,7 +6,6 @@ import useWindowDimensions from '../useWindowDimensions';
 import { Link } from 'react-router-dom';
 import { Input } from 'semantic-ui-react';
 import styled from 'styled-components';
-import headerComponent from './header';
 
 const coords = [60.1954, 24.9174];
 
@@ -31,7 +30,6 @@ export default function BuildingMap({ typed, change, options }) {
   const { height, width } = useWindowDimensions();
   return (
     <div>
-      {headerComponent()}
       <div
         style={{
           maxWidth: '100%',
