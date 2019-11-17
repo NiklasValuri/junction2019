@@ -7,6 +7,8 @@ import { data } from '../db';
 const InfoPage = () => {
   const { id } = useParams();
 
+  const rndm = parseInt(id) % 100;
+  console.log(rndm);
   let history = useHistory();
 
   function handleClick() {
@@ -42,16 +44,19 @@ const InfoPage = () => {
         <TextArea>
           <Header as="h2">Job description</Header>
 
-          <Text>{job.description.charAt(0).toUpperCase() + job.description.slice(1).toLowerCase()}</Text>
+          <Text>
+            {job.description.charAt(0).toUpperCase() + job.description.slice(1).toLowerCase()}
+          </Text>
         </TextArea>
 
         <TextArea>
           <Header as="h2">Project timeline</Header>
 
           <Text>Project started on 1.5.2019</Text>
+          <Text>Estimated completion in September 2019</Text>
 
           <Text>
-            <Progress percent="75" indicating />
+            <Progress percent={rndm} indicating />
           </Text>
         </TextArea>
       </Page>
