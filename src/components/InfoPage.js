@@ -42,7 +42,7 @@ const InfoPage = () => {
         <TextArea>
           <Header as="h2">Job description</Header>
 
-          <Text>{job.description}</Text>
+          <Text>{job.description.charAt(0).toUpperCase() + job.description.slice(1).toLowerCase()}</Text>
         </TextArea>
 
         <TextArea>
