@@ -9,6 +9,7 @@ function App() {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
+    handleOptionChange({target: {value: ""}})
     setTyped(typed);
   }, []);
 
