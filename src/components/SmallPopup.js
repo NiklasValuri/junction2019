@@ -5,10 +5,9 @@ import { Link } from 'react-router-dom';
 const popupContent = props => {
   return (
     <div>
-      <div>Nimi: {props.name}</div>
-      <div>Osoite: {props.address}</div>
-      <div>Status: in progress</div>
-
+      <div>Site: {props.name}</div>
+      <div>Address: {props.address}</div>
+      <div>Status: In Progress</div>
       <Link to={`/info/${props.id}`}>More Info</Link>
     </div>
   );
